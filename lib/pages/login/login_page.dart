@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            // ไล่เฉดจา กมุมบนซ้ายไปมุมล่างขวาของ Container
+            // ไล่เฉดจากมุมบนซ้ายไปมุมล่างขวาของ Container
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             // ไล่เฉดจากสีแดงไปสีน้ำเงิน
@@ -41,10 +41,10 @@ class _LoginPageState extends State<LoginPage> {
                         'LOGIN',
                         style: Theme.of(context).textTheme.headline1,
                       ),
-                      Text('Enter PIN to login'),
+                      Text('Enter PIN to login',style: TextStyle(fontSize: 20.0),),
+                      SizedBox(height: 80.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           input.length >= 1 ? _dNumber() : _dNumber2(),
                           input.length >= 2 ? _dNumber() : _dNumber2(),
