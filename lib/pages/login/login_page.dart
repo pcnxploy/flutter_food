@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food/pages/homepage.dart';
+import 'package:flutter_food/pages/home/homepage.dart';
 
 class LoginPage extends StatefulWidget {
+  static const routeName = '/login';
+
   const LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -36,22 +38,42 @@ class _LoginPageState extends State<LoginPage> {
                       Icon(
                         Icons.lock_outline,
                         size: 100.0,
+                        color: Colors.green.shade300,
                       ),
                       Text(
                         'LOGIN',
-                        style: Theme.of(context).textTheme.headline1,
+                        style: TextStyle(
+                            color: Colors.green.shade300,
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold),
                       ),
-                      Text('Enter PIN to login',style: TextStyle(fontSize: 20.0),),
+                      Text(
+                        'Enter PIN to login',
+                        style: TextStyle(fontSize: 20.0),
+                      ),
                       SizedBox(height: 80.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          input.length >= 1 ? _dNumber() : _dNumber2(),
-                          input.length >= 2 ? _dNumber() : _dNumber2(),
-                          input.length >= 3 ? _dNumber() : _dNumber2(),
-                          input.length >= 4 ? _dNumber() : _dNumber2(),
-                          input.length >= 5 ? _dNumber() : _dNumber2(),
-                          input.length >= 6 ? _dNumber() : _dNumber2(),
+                          for (var i = 0; i < input.length; i++)
+                            Container(
+                              margin: EdgeInsets.all(4.0),
+                              width: 24.0,
+                              height: 24.0,
+                              decoration: BoxDecoration(
+                                  color: Colors.green.shade300,
+                                  shape: BoxShape.circle),
+                            ),
+                          for (var i = input.length; i < 6; i++)
+                            Container(
+                              margin: EdgeInsets.all(4.0),
+                              width: 24.0,
+                              height: 24.0,
+                              decoration: BoxDecoration(
+                                color: Colors.green.shade200,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
                         ],
                       ),
                     ],
@@ -97,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
   String password = '123456';
   var input = ''; //เก็บตัวเลขที่กดเข้ามา
 
-  _dNumber() {
+  /*_dNumber() {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
@@ -123,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
+  }*/
 
   void _handleClickButton(int num) {
     setState(() {
@@ -140,11 +162,9 @@ class _LoginPageState extends State<LoginPage> {
           setState(() {
             input = '';
           });
-        } else{
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => Homepage()),
-          );
+        } else {
+          //ไปหน้า homepage
+          Navigator.pushReplacementNamed(context, HomePage.routeName);
         }
       }
     });
@@ -197,8 +217,8 @@ class LoginButton extends StatelessWidget {
             ? null
             : BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(width: 2.0),
-              ),
+                //border: Border.all(width: 2.0),
+                color: Colors.white24),
         child: Center(
           child: number >= 0
               ? Text(
