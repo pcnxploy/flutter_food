@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_food/models/food_item.dart';
 import 'package:flutter_food/pages/home/food/food_details.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FoodListPage extends StatefulWidget {
   const FoodListPage({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class _FoodListPageState extends State<FoodListPage> {
                     SizedBox(width: 8.0),
                     Text(
                       item.name,
-                      style: TextStyle(fontSize: 20.0),
+                      style: GoogleFonts.sarabun(fontSize: 20.0),
                     ),
                   ],
                 ),
