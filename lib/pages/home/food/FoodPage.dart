@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food/pages/home/FoodListPage.dart';
+import 'package:flutter_food/pages/home/food/FoodListPage.dart';
 import 'package:flutter_food/pages/home/OrderPage.dart';
 
 class FoodPage extends StatefulWidget {

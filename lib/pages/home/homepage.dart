@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food/pages/home/FoodPage.dart';
+import 'package:flutter_food/pages/home/food/FoodPage.dart';
 import 'package:flutter_food/pages/home/ProfilePage.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: _subPageIndex == 0 ? Text('FOOD') : Text('PROFILE'),
+        title: _buildHeadPage(),
         backgroundColor: Colors.green.shade300,
       ),
       drawer: Drawer(
@@ -87,6 +87,17 @@ class _HomePageState extends State<HomePage> {
       _subPageIndex = index;
     });
     Navigator.of(context).pop();
+  }
+
+  _buildHeadPage() {
+    switch (_subPageIndex) {
+      case 0: // home page
+        return Text('FOOD');
+      case 1:
+        return Text('PROFILE');
+      default:
+        return Text('FOOD');
+    }
   }
 
   _buildSubPage() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/pages/home/food/food_details.dart';
 import 'package:flutter_food/pages/home/homepage.dart';
 import 'package:flutter_food/pages/login/login_page.dart';
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         LoginPage.routeName: (context) => const LoginPage(),
         HomePage.routeName: (context) => const HomePage(),
+        FoodDetails.routeName: (context) => const FoodDetails(),
       },
       //ตั้งค่าหน้าเริ่มต้น(หน้าแรกที่เปิดแอพ)
       initialRoute: '/login',
