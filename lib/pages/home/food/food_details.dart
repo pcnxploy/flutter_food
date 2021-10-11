@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_food/models/food_item.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +19,10 @@ class FoodDetails extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset('assets/images/${food.image}'),
+            Image.asset(
+              'assets/images/${food.image}',
+              fit: BoxFit.cover,
+            ),
             SizedBox(height: 20.0),
             Padding(
               padding: const EdgeInsets.only(left: 10.0, bottom: 8),
